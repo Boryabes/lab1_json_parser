@@ -12,17 +12,24 @@
 namespace nlohmann {
 template <>
 struct adl_serializer<std::any> {
-  static void to_json(json &j, const std::any &a_any) { //объясняем как класс эни преобразовать в джисон
-    if (a_any.type() == typeid(std::string)) { //проверяет строка ли (тайпайди возвращает числовой индекс типа)
-      j = std::any_cast<std::string>(a_any); //преобразуем в строку и отдаем джейсону
+  static void to_json(
+      json &j,
+      const std::any &a_any) {  //объясняем как класс эни преобразовать в джисон
+    if (a_any.type() ==
+        typeid(std::string)) {  //проверяет строка ли (тайпайди возвращает
+                                //числовой индекс типа)
+      j = std::any_cast<std::string>(
+          a_any);  //преобразуем в строку и отдаем джейсону
     } else if (a_any.type() == typeid(int)) {
       j = std::any_cast<int>(a_any);
     } else if (a_any.type() == typeid(float)) {
       j = std::any_cast<float>(a_any);
-    } else if (a_any.type() == typeid(std::vector<std::string>)) { //если массив строк
+    } else if (a_any.type() ==
+               typeid(std::vector<std::string>)) {  //если массив строк
       j = std::any_cast < std::vector < std::string(a_any);
     } else {
-      j = nullptr; //если тип неустановлен то это не наш эни и это пустой класс,значит передаем 0
+      j = nullptr;  //если тип неустановлен то это не наш эни и это пустой
+                    //класс,значит передаем 0
     }
   }
 
@@ -37,7 +44,8 @@ struct adl_serializer<std::any> {
       a_any = nullptr;
     } else if (j.is_array()) {
       std::vector<std::string> v;
-      for (json::const_iterator i = j.cbegin(); i != j.cend(); i++) { //если в джисоне массив то в эни передаем массив
+      for (json::const_iterator i = j.cbegin(); i != j.cend();
+           i++) {  //если в джисоне массив то в эни передаем массив
         v.push_back(i.value());
       }
       a_any = v;
