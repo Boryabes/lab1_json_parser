@@ -13,6 +13,12 @@ using nlohmann::json;
 
 struct Student {
   explicit Student(const json &j);  //конструктор инициализирует структура из джейсона
+
+  void PrintName(std::ostream &out) const; //конст показывает что не изменяет содержимое структуры а лишь выводит содержимое
+  void PrintGroup(std::ostream &out) const;
+  void PrintAvg(std::ostream &out) const;
+  void PrintDebt(std::ostream &out) const;
+
   std::string name;
   std::any group;
   std::any avg;
