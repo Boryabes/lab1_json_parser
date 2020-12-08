@@ -67,6 +67,7 @@ std::vector<student_t> parse_json(std::istream &json_stream) {
     auto student =
         j.at("items")[i].get<student_t>();  //использование сериализатора, авто
                                             //- автоматическое присвоение типа
+                                                     //
     result.push_back(student);
   }
   return result;

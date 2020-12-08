@@ -14,14 +14,13 @@ TEST(exception, ItemsIsNotArray) {  //Обрабатываем исключен�
   std::string exception_String;  // превозданном виде(не изменяются
   json_stream << R"(
   {
-    "items": [
+    "items":
     {
       "name": "Ivanov Petr",
           "group": "1",
           "avg": "4.25",
           "debt": null
     },
-],
 "_meta": {
 "count": 3
 }
@@ -76,7 +75,9 @@ TEST(exception, InvalidCount) {  //проверяем совпадает ли к
   try {
     auto students = parse_json(json_stream);
   } catch (std::runtime_error &e) {
-    exception_String = e.what();
+    exception_String =
+        e.what();  //метод исключения,который возвращает строку которую мы в это
+                   //исключение передали при возбуждении
   }
   EXPECT_EQ(exception_String, "meta: count and items size mismatch");
 }
