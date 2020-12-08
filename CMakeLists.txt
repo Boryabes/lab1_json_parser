@@ -34,7 +34,7 @@ find_package(nlohmann_json CONFIG REQUIRED)
 add_library(parser STATIC
   # enum your files and delete this comment
   ${CMAKE_CURRENT_SOURCE_DIR}/sources/source.cpp
-        include/jsonSerializer.h) #создаем библиотеку из файлов
+        ) #создаем библиотеку из файлов
 add_executable(tests
   # TODO: enum your files and delete this comment
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
