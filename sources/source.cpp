@@ -42,12 +42,14 @@ std::any get_debt(const json &j) {
   }
 }
 
-void from_json(const json &j, student_t &s) {  //сериализатор, функция перегруженная для стьюдент_т
+void from_json(
+    const json &j,
+    student_t &s) {
   s.name = get_name(j.at("name"));
   s.group = get_group(j.at("group"));
   s.avg = get_avg(j.at("avg"));
   s.debt = get_debt(j.at("debt"));
-}
+} //сериализатор, функция перегруженная для стьюдент_т
 
 std::vector<student_t> parse_json(std::istream &json_stream) {
   json j;
@@ -65,9 +67,10 @@ std::vector<student_t> parse_json(std::istream &json_stream) {
 
   for (std::size_t i = 0; i < j.at("items").size(); i++) {
     auto student =
-        j.at("items")[i].get<student_t>();  //использование сериализатора, авто
-                                            //- автоматическое присвоение типа
-                                            //
+        j.at("items")[i]
+            .get<student_t>();  //использование сериализатора,
+                                //- авто автоматическое присвоение типа
+                                //
     result.push_back(student);
   }
   return result;
