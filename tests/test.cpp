@@ -6,6 +6,43 @@
 #include <sstream>
 #include <vector>
 
+TEST(table, print_table) {
+  std::stringstream json_stream;
+  json_stream << R"(
+{
+  "items": [
+    {
+      "name": "Ivanov Petr",
+      "group": "1",
+      "avg": "4.25",
+      "debt": null
+    },
+    {
+      "name": "Sidorov Ivan",
+      "group": 31,
+      "avg": 4,
+      "debt": "C++"
+    },
+    {
+      "name": "Pertov Nikita",
+      "group": "IU8-31",
+      "avg": 3.33,
+      "debt": [
+        "C++",
+        "Linux",
+        "Network"
+      ]
+    }
+  ],
+  "_meta": {
+    "count": 3
+  }
+}
+)";
+  auto students = parse_json(json_stream);
+  print(students, std::cout);
+}
+
 TEST(exception, ItemsIsNotArray) {  //Обрабатываем исключение когда айтимс не
                                     // является массивом
   //в джисон стрим запихиваем джисон заведомо некорректный
