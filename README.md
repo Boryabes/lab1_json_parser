@@ -2,7 +2,7 @@
 
 | branch | status |
 |--------|--------|
-| development | [![CI](https://github.com/Boryabes/lab1_student_json_parser/..)](https://github.com/Boryabes/lab1_student_json_parser/..)
+| development | [![CI](https://github.com/Boryabes/lab1_student_json_parser/..)](https://github.com/Boryabes/lab1_student_json_parser/..) 
 ## Задание
 
 Реализовать утилиту табличного вывода массива данных, хранящихся в файле формата **JSON**.<br />
