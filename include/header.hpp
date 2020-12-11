@@ -16,14 +16,23 @@ const int cavg_column_width = 6;
 const int cdebt_column_width = 10;
 
 struct student_t {
+ private:
   std::string name;
   std::any group;
   std::any avg;
   std::any debt;
+  static student_t from_json(const json& j);
+
+  friend void print(const student_t& student, std::ostream& os);
+  friend std::vector<student_t> parse_json(std::istream& json_stream);
+  friend std::ostream& operator<<(std::ostream& os,
+                                  const std::vector<student_t>& students);
 };
 
-void print(const student_t &student, std::ostream &os);
-void print(const std::vector<student_t> &students, std::ostream &os);
-std::vector<student_t> parse_json(std::istream &json_stream);
+std::ostream& operator<<(std::ostream& os,
+                         const std::vector<student_t>& students);
+
+void print(const student_t& student, std::ostream& os);
+std::vector<student_t> parse_json(std::istream& json_stream);
 
 #endif  // INCLUDE_HEADER_HPP_

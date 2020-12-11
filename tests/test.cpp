@@ -4,7 +4,6 @@
 
 #include <header.hpp>
 #include <sstream>
-#include <vector>
 
 TEST(table, print_table) {
   std::stringstream json_stream;
@@ -40,7 +39,19 @@ TEST(table, print_table) {
 }
 )";
   auto students = parse_json(json_stream);
-  print(students, std::cout);
+  std::stringstream printed_table;
+  printed_table << students;
+  std::string ref_string =
+      R"(| name                | group     | avg   | debt      |
+|---------------------|-----------|-------|-----------|
+| Ivanov Petr         | 1         | 4.25  | null      |
+|---------------------|-----------|-------|-----------|
+| Sidorov Ivan        | 31        | 4     | C++       |
+|---------------------|-----------|-------|-----------|
+| Pertov Nikita       | IU8-31    | 3.33  | 3    items|
+|---------------------|-----------|-------|-----------|
+)";
+  EXPECT_EQ(ref_string, printed_table.str());
 }
 
 TEST(exception, ItemsIsNotArray) {

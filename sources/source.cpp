@@ -18,9 +18,7 @@ std::any get_group(const json &j) {
 }
 
 std::any get_avg(const json &j) {
-  if (j.is_null()) {
-    return nullptr;
-  } else if (j.is_string()) {
+  if (j.is_string()) {
     return j.get<std::string>();
   } else if (j.is_number_float()) {
     return j.get<float>();
@@ -39,11 +37,13 @@ std::any get_debt(const json &j) {
   }
 }
 
-void from_json(const json &j, student_t &s) {
+student_t student_t::from_json(const json &j) {
+  student_t s;
   s.name = get_name(j.at("name"));
   s.group = get_group(j.at("group"));
   s.avg = get_avg(j.at("avg"));
   s.debt = get_debt(j.at("debt"));
+  return s;
 }
 
 std::vector<student_t> parse_json(std::istream &json_stream) {
@@ -60,8 +60,8 @@ std::vector<student_t> parse_json(std::istream &json_stream) {
 
   std::vector<student_t> result;
 
-  for (std::size_t i = 0; i < j.at("items").size(); i++) {
-    auto student = j.at("items")[i].get<student_t>();
+  for (const auto &json_student : j.at("items")) {
+    auto student = student_t::from_json(json_student);
 
     result.push_back(student);
   }
@@ -103,7 +103,8 @@ void print(const student_t &student, std::ostream &os) {
   }
 }
 
-void print(const std::vector<student_t> &students, std::ostream &os) {
+std::ostream &operator<<(std::ostream &os,
+                         const std::vector<student_t> &students) {
   std::string separator;
 
   separator += "|-";
@@ -134,4 +135,5 @@ void print(const std::vector<student_t> &students, std::ostream &os) {
     print(student, os);
     os << std::endl << separator << std::endl;
   }
+  return os;
 }
