@@ -28,7 +28,6 @@ struct student_t {
   friend std::ostream& operator<<(std::ostream& os,
                                   const std::vector<student_t>& students);
 };
-
 std::ostream& operator<<(std::ostream& os,
                          const std::vector<student_t>& students);
 
