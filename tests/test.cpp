@@ -63,7 +63,6 @@ TEST(exception, ItemsIsNotArray) {
 )";
   try {
     auto students = parse_json(json_stream);
-
   } catch (std::runtime_error &e) {
     exception_String = e.what();
   }
