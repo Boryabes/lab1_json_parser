@@ -2,8 +2,8 @@
 
 | branch | status |
 |--------|--------|
-| development | [![CI](https://github.com/Boryabes/lab1_student_json_parser/workflows/CI/badge.svg?branch=development)
-(https://github.com/Boryabes/lab1_student_json_parser/actions/runs/409002672)
+| development | [![CI](https://github.com/Boryabes/lab1_student_json_parser/workflows/CI/badge.svg?branch=development)]
+(https://github.com/Boryabes/lab1_student_json_parser/actions/runs/409002672)|
 
 ## Задание
 
