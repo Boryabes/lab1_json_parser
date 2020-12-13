@@ -131,7 +131,7 @@ std::ostream &operator<<(std::ostream &os,
   os << "| " << std::left << std::setw(cdebt_column_width) << "debt";
   os << std::right << "|";
   os << std::endl << separator << std::endl;
-  for (auto &student : students) {
+  for (const auto &student : students) {
     print(student, os);
     os << std::endl << separator << std::endl;
   }

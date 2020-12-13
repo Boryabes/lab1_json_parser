@@ -79,9 +79,9 @@ TEST(exception, ItemsIsNotArray) {
   }
   EXPECT_EQ(exception_String, "Items most be array type");
 }
-TEST(exception, InvalidCount) {
+TEST(exception, invalid_count) {
   std::stringstream json_stream;
-  std::string exception_String;
+  std::string exception_string;
   json_stream << R"(
   {
     "items": [
@@ -115,7 +115,7 @@ TEST(exception, InvalidCount) {
   try {
     auto students = parse_json(json_stream);
   } catch (std::runtime_error &e) {
-    exception_String = e.what();
+    exception_string = e.what();
   }
-  EXPECT_EQ(exception_String, "meta: count and items size mismatch");
+  EXPECT_EQ(exception_string, "meta: count and items size mismatch");
 }
