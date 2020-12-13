@@ -35,3 +35,5 @@ void print(const student_t& student, std::ostream& os);
 std::vector<student_t> parse_json(std::istream& json_stream);
 
 #endif  // INCLUDE_HEADER_HPP_
+
+]

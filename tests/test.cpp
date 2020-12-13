@@ -119,3 +119,5 @@ TEST(exception, InvalidCount) {
   }
   EXPECT_EQ(exception_String, "meta: count and items size mismatch");
 }
+
+]
