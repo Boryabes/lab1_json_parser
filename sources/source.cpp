@@ -38,12 +38,12 @@ std::any get_debt(const json &j) {
 }
 
 student_t student_t::from_json(const json &j) {
-  student_t s;
-  s.name = get_name(j.at("name"));
-  s.group = get_group(j.at("group"));
-  s.avg = get_avg(j.at("avg"));
-  s.debt = get_debt(j.at("debt"));
-  return s;
+  student_t student;
+  student.name = get_name(j.at("name"));
+  student.group = get_group(j.at("group"));
+  student.avg = get_avg(j.at("avg"));
+  student.debt = get_debt(j.at("debt"));
+  return student;
 }
 
 std::vector<student_t> parse_json(std::istream &json_stream) {
