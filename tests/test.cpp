@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include <header.hpp>
+#include <json_parser_student.hpp>
 #include <sstream>
 
 TEST(table, print_table) {
