@@ -1,7 +1,7 @@
 // Copyright 2020 BoryaBes <box.bern@yandex.ru>
 
-#ifndef INCLUDE_HEADER_HPP_
-#define INCLUDE_HEADER_HPP_
+#ifndef INCLUDE_JSON_PARSER_STUDENT_HPP_
+#define INCLUDE_JSON_PARSER_STUDENT_HPP_
 
 #include <any>
 #include <nlohmann/json.hpp>
@@ -34,4 +34,4 @@ std::ostream& operator<<(std::ostream& os,
 void print(const student_t& student, std::ostream& os);
 std::vector<student_t> parse_json(std::istream& json_stream);
 
-#endif  // INCLUDE_HEADER_HPP_
+#endif  // INCLUDE_JSON_PARSER_STUDENT_HPP_
